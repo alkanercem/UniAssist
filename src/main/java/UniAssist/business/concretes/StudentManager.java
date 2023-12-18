@@ -1,13 +1,15 @@
 package UniAssist.business.concretes;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import UniAssist.business.abstracts.StudentService;
 import UniAssist.business.requests.CreateStudentRequest;
@@ -28,7 +30,9 @@ public class StudentManager implements StudentService{
 	private ModelMapperService modelMapperService;
 	private StudentRepository studentRepository;
 	private UserManager userManager;
+	@Autowired
 	private PasswordEncoder passwordEncoder;
+	
 
 	@Override
 	public List<GetAllStudentsResponse> getAll() {
@@ -50,12 +54,13 @@ public class StudentManager implements StudentService{
 	}
 
 	@Override
-	public void add(CreateStudentRequest createStudentRequest) {
+	public void add(CreateStudentRequest createStudentRequest) throws IOException {
 		
 		//Student student = new Student();
 		//student.setName(createStudentRequest.getName());
 		Student student = this.modelMapperService.forRequest().map(createStudentRequest, Student.class);
 		this.studentRepository.save(student);		
+		
 	}
 	
 	public ResponseEntity<String> register(CreateStudentRequest createStudentRequest) {
@@ -73,8 +78,7 @@ public class StudentManager implements StudentService{
 	@Override
 	public GetByIdStudentResponse getById(int id) {
 		
-		Student student = this.studentRepository.findById(id).orElseThrow();
-		
+		Student student = this.studentRepository.findById(id);
 		GetByIdStudentResponse response 
 		= this.modelMapperService.forResponse().map(student, GetByIdStudentResponse.class);
 		
@@ -97,7 +101,6 @@ public class StudentManager implements StudentService{
 		
 		Student student = this.modelMapperService.forRequest().map(updateStudentRequest, Student.class);
 		this.studentRepository.save(student);
-		//ID olmasaydı insert yapardı fakat id updateStudentRequest'de var olduğu için update yapılır)
 	}
 
 	@Override

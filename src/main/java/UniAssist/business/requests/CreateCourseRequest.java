@@ -28,10 +28,19 @@ public class CreateCourseRequest {
 	@Size(min=5, max=20)
 	private String semesterName;
 	
-	
+	private String firstName;
+
+    private String lastName;
+    
 	private int courseClass;
 	
-	
 	private int creditHours;
+	
+	private String day; // Pazartesi, Salı, Çarşamba, ...
+
+	private String timeInterval; // 8-10, 10-12, ...
+			
+	private String examTime; // 8-10, 10-12, ...
+
 	
 }

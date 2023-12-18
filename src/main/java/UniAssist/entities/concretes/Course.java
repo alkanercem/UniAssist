@@ -43,12 +43,21 @@ public class Course {
 	@Column(name="semester_name")
 	private String semesterName;
 	
-	@Column(name="class")
+	@Column(name="course_class")
 	private int courseClass;
 	
 	@Column(name="credit_hours")
 	private int creditHours;
-	 
+	
+	@Column(name = "day")
+	private String day; // Pazartesi, Salı, Çarşamba, ...
+
+	@Column(name = "time_interval")
+	private String timeInterval; // 8-10, 10-12, ...
+	
+	@Column(name = "exam_time")
+	private String examTime; // 8-10, 10-12, ...
+	
 	@OneToMany(mappedBy = "course")
 	List<Grade> grade;
 	

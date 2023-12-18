@@ -9,10 +9,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetAllCoursesResponse {
+	private int id;
 	private String name;
 	private String departmentName;
 	private String semesterName;
 	private int courseClass;
 	private int creditHours;
+	private int grade;
+	private int attendanceStatus;
 
 }
+	

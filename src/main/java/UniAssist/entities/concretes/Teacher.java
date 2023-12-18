@@ -1,7 +1,5 @@
 package UniAssist.entities.concretes;
 
-
-
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -9,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -30,7 +29,7 @@ public class Teacher {
 	private int id;
 	
 	@Column(name="tc")
-	private long tc;
+	private Long tc;
 	
 	@Column(name="first_name")
 	private String firstName;
@@ -46,6 +45,10 @@ public class Teacher {
 	
 	@Column(name="office_no")
 	private String officeNo;
+	
+	@Column(name="image")
+	@Lob
+	private String image;
 	 
 	@OneToMany(mappedBy = "teacher")
 	List<Course> course;

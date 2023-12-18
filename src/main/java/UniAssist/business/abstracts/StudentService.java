@@ -1,5 +1,6 @@
 package UniAssist.business.abstracts;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,7 @@ public interface StudentService {
 	
 	List<GetAllStudentsResponse> getAll();
 	GetByIdStudentResponse getById(int id);
-	void add(CreateStudentRequest createStudentRequest);
+	void add(CreateStudentRequest createStudentRequest)throws IOException;
 	void update(UpdateStudentRequest updateStudentRequest);
 	void delete(int id);
 	GetByMailStudentResponse getByMail(String mail);

@@ -1,9 +1,9 @@
 package UniAssist.webApi;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,7 +48,7 @@ public class StudentsController {
 	
 	@PostMapping("/add")
 	@ResponseStatus(code=HttpStatus.CREATED)
-	public void add(@RequestBody CreateStudentRequest createStudentRequest) {
+	public void add(@RequestBody CreateStudentRequest createStudentRequest) throws IOException {
 		this.studentService.add(createStudentRequest);
 		this.studentService.register(createStudentRequest);
 	}

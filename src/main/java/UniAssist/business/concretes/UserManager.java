@@ -2,6 +2,7 @@ package UniAssist.business.concretes;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ import jakarta.transaction.Transactional;
 public class UserManager {
 
 	UserRepository userRepository;
+	@Autowired
 	RoleRepository roleRepository;
 	
 

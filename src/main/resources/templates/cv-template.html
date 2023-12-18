@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CV Template</title>
+    <!-- Diğer stil ve meta etiketlerini buraya ekleyebilirsiniz -->
+</head>
+<body>
+
+    <div>
+        <h1 th:text="${studentCV.student.firstName + ' ' + studentCV.student.lastName}">John Doe</h1>
+        <p th:text="${studentCV.student.departmentName}">Computer Science</p>
+        <!-- Diğer öğrenci bilgilerini buraya ekleyebilirsiniz -->
+
+        <h2>About Me</h2>
+        <p th:text="${studentCV.aboutMe}">Passionate about programming</p>
+
+        <h2>Skills</h2>
+        <p th:text="${studentCV.skills}">Java, Python, HTML, CSS</p>
+
+        <h2>Experience</h2>
+        <p th:text="${studentCV.experience}">Internship at XYZ Company</p>
+
+        <!-- Diğer CV bölümlerini buraya ekleyebilirsiniz -->
+    </div>
+
+</body>
+</html>

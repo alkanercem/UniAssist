@@ -7,7 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -43,7 +45,17 @@ public class Student {
 	@Column(name="mail")
 	private String mail;
 	
+	@Column(name="department_name")
+	private String departmentName;
+	
+	@Lob
+	@Column(name="image")
+	private String image;
+	
 	@OneToMany(mappedBy = "student")
 	List<Grade> grade;
+	  
+	@OneToOne(mappedBy = "student")
+	private StudentCV studentCV;
 	
 }

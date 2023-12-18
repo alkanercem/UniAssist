@@ -1,8 +1,5 @@
 package UniAssist.business.responses;
 
-import java.util.List;
-
-import UniAssist.entities.concretes.Grade;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,13 +7,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetByMailStudentResponse {
+public class GetByMailTeacherResponse {
 	
 	private int id;
+	private Long tc;
 	private String firstName;
 	private String lastName;
-	private int courseClass;
+	private String departmentName;
 	private String mail;
-	//List<Grade> grade;
+	private String officeNo;
+	private String image;
 
 }
