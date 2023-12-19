@@ -8,7 +8,7 @@ As part of my senior project, I co-developed a comprehensive Student Information
 ## Technology Stack
 
 - **Backend**: Spring Boot, PostgreSQL
-![Veritabanı Diyagramı]([ER Diagram.png](https://hizliresim.com/rjihbr4))
+![Veritabanı Diyagramı]([url=https://hizliresim.com/rjihbr4][img]https://i.hizliresim.com/rjihbr4.png[/img][/url])
 ## Key Features
 
 - **JWT-Based Authentication**: Implemented essential components for JWT-based authentication.
