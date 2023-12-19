@@ -5,7 +5,6 @@ As part of my senior project, I co-developed a comprehensive Student Information
 ## Project Highlights
 
 **Objective**: To create an efficient and user-friendly student information system with advanced features catering to modern educational needs.
-<iframe width="560" height="315" src='https://dbdiagram.io/e/6580de6756d8064ca0450989/6580de7856d8064ca0450a27'> </iframe>
 ## Technology Stack
 
 - **Backend**: Spring Boot, PostgreSQL
