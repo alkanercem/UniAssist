@@ -8,8 +8,7 @@ As part of my senior project, I co-developed a comprehensive Student Information
 ## Technology Stack
 
 - **Backend**: Spring Boot, PostgreSQL
-
-## ER Diagram
+- **ER Diagram**:
 [![](https://www.resimupload.org/images/2023/12/19/ER-Diagram.png)]([https://hizliresim.com/rjihbr4](https://www.resimupload.org/images/2023/12/19/ER-Diagram.png))
 
 ## Key Features
