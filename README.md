@@ -7,7 +7,7 @@ As part of my senior project, I co-developed a comprehensive Student Information
 **Objective**: To create an efficient and user-friendly student information system with advanced features catering to modern educational needs.
 ## Technology Stack
 
-- **Backend**: Spring Boot, PostgreSQL
+- **Backend**: Spring Boot, PostgreSQL  
 **ER Diagram**:
 [![](https://www.resimupload.org/images/2023/12/19/ER-Diagram.png)]([https://hizliresim.com/rjihbr4](https://www.resimupload.org/images/2023/12/19/ER-Diagram.png))
 
