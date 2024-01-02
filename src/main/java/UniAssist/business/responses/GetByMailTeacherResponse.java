@@ -16,6 +16,5 @@ public class GetByMailTeacherResponse {
 	private String departmentName;
 	private String mail;
 	private String officeNo;
-	private String image;
 
 }

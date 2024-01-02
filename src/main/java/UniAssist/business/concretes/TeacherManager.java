@@ -1,5 +1,6 @@
 package UniAssist.business.concretes;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,6 +14,7 @@ import UniAssist.business.requests.AddAttendanceRequest;
 import UniAssist.business.requests.AddGradeRequest;
 import UniAssist.business.requests.CreateTeacherRequest;
 import UniAssist.business.requests.UpdateStudentRequest;
+import UniAssist.business.responses.GetAllStudentsResponse;
 import UniAssist.business.responses.GetByMailTeacherResponse;
 import UniAssist.business.responses.GetByTeacherCoursesResponse;
 import UniAssist.core.utilities.mappers.ModelMapperService;
@@ -88,6 +90,25 @@ public class TeacherManager implements TeacherService {
 		return coursesResponse;			    	
 	    	
 	    }
+	
+	public List<GetAllStudentsResponse> getStudentsByTeacherAndCourse(Teacher teacher, Course course) {
+        List<Grade> grades = course.getGrade();
+        List<GetAllStudentsResponse> studentResponses = new ArrayList<>();
+
+        for (Grade grade : grades) {
+            Student student = grade.getStudent();
+            
+            GetAllStudentsResponse response = new GetAllStudentsResponse();
+            response.setId(student.getId());
+            response.setFirstName(student.getFirstName());
+            response.setLastName(student.getLastName());
+
+
+            studentResponses.add(response);
+        }
+
+        return studentResponses;
+    }
 	public void addGrade(AddGradeRequest addGradeRequest) {
 		Grade grade = gradeRepository.findByStudentIdAndCourseId(addGradeRequest.getStudent_id(), addGradeRequest.getCourse_id());
 		grade.setGrade(addGradeRequest.getGrade());

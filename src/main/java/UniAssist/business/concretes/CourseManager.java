@@ -63,11 +63,12 @@ public class CourseManager implements CourseService {
     }
 
 	public void addCourseToTeacher(CreateCourseRequest createCourseRequest) {
-	        Teacher teacher = teacherRepository.findByFirstNameAndLastName(createCourseRequest.getFirstName(), createCourseRequest.getLastName());
-	        
-	        if (teacher == null) {
+	    Teacher teacher = teacherRepository.findByFirstNameAndLastName(createCourseRequest.getFirstName(), createCourseRequest.getLastName());
+	    
+	        if (teacher == null) 
 	            System.out.println("Teacher not found");
-	        } else {
+	         
+	        else {
 	            Course course = modelMapperService.forRequest().map(createCourseRequest, Course.class);
 	            course.setTeacher(teacher);
 	            courseRepository.save(course);

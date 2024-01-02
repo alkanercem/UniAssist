@@ -1,4 +1,4 @@
-	package UniAssist.business.requests;
+package UniAssist.business.requests;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -21,12 +21,13 @@ public class CreateStudentRequest {
 	@Size(min=5, max=20)
 	private String password;
 	
-	
 	private int courseClass;
 	
 	private String mail;
 	
 	private String departmentName;
+	
+	private String sectionName;
 	
 	@NotNull
 	@NotBlank

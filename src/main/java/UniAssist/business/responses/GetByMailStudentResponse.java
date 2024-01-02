@@ -17,6 +17,9 @@ public class GetByMailStudentResponse {
 	private String lastName;
 	private int courseClass;
 	private String mail;
-	//List<Grade> grade;
+	private String departmentName;
+	private String sectionName;
+//	private List<Grade> grades;
+
 
 }

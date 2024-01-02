@@ -23,6 +23,8 @@ public class CreateCourseRequest {
 	@Size(min=5, max=20)
 	private String departmentName;
 	
+	private String sectionName;
+	
 	@NotNull
 	@NotBlank
 	@Size(min=5, max=20)

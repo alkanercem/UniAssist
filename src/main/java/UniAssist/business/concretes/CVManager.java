@@ -15,7 +15,8 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
 
 import UniAssist.business.abstracts.CVService;
-import UniAssist.business.requests.CVRequest;
+import UniAssist.business.requests.CvRequest;
+import UniAssist.dataAccess.abstracts.StudentCvRepository;
 import UniAssist.dataAccess.abstracts.StudentRepository;
 import UniAssist.entities.concretes.Student;
 import UniAssist.entities.concretes.StudentCV;
@@ -28,48 +29,47 @@ public class CVManager implements CVService {
    
     @Autowired
     private TemplateEngine templateEngine;
-	
+    
+    @Autowired
+    private StudentCvRepository studentCvRepository;
+    
+    
     @Override
-    public void createCV(CVRequest cvRequest) throws IOException, DocumentException{
-    	if (cvRequest != null) {
-    		System.out.println("kontrol-1");
-    		Student student = studentRepository.findById(cvRequest.getStudentId());
-    		
-            StudentCV studentCV = new StudentCV();
-            studentCV.setStudent(student);
-            studentCV.setAboutMe(cvRequest.getAboutMe());
-            studentCV.setSkills(cvRequest.getSkills());
-            studentCV.setExperience(cvRequest.getExperience());
-
-            student.setStudentCV(studentCV);
-
-            studentRepository.save(student);
-           
-				generatePDF(studentCV);
-			
-        } else {
-            throw new RuntimeException("Öğrenci bulunamadı e-posta: " + cvRequest.getStudentId());
-        }
+    public void generatePDF(CvRequest cvRequest) throws IOException, DocumentException {
+    	Student student = new Student();
+        student = studentRepository.findById(cvRequest.getStudentId());
+        if (student == null) 
+        	throw new RuntimeException("Öğrenci bulunamadı ID: " + cvRequest.getStudentId());
+            
+        StudentCV studentCV = new StudentCV();
+        studentCV.setStudent(student);
+        studentCV.setAboutMe(cvRequest.getAboutMe());
+        studentCV.setSkills(cvRequest.getSkills());
+        studentCV.setExperience(cvRequest.getExperience());
+            
+        studentCvRepository.save(studentCV);    
+      
+        String aboutMe = cvRequest.getAboutMe();
+        String skills = cvRequest.getSkills();
+        String experience = cvRequest.getExperience();
         
-    }
-    @Override
-    public void generatePDF(StudentCV studentCV) throws IOException, DocumentException {
         Context context = new Context();
-        context.setVariable("aboutMe", studentCV.getAboutMe());
-        context.setVariable("skills", studentCV.getSkills());
-        context.setVariable("experience", studentCV.getExperience());
+        
+        context.setVariable("student", student);
+        context.setVariable("aboutMe", aboutMe);
+        context.setVariable("skills", skills);
+        context.setVariable("experience", experience);
 
         String processedHtml = templateEngine.process("cv-template", context);
 
+        String fileName = "cv_" + cvRequest.getStudentId() + ".pdf";
         Document document = new Document();
-        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("cv_" + studentCV.getStudent().getId() + ".pdf"));
+
+        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(fileName));
         document.open();
         XMLWorkerHelper.getInstance().parseXHtml(writer, document, new ByteArrayInputStream(processedHtml.getBytes()));
-        document.close();
-    }
-    
- 
-    
+        document.close();        
+    }   
 }
 
 

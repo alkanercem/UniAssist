@@ -1,4 +1,4 @@
-package UniAssist.Util;
+package UniAssist.util;
 
 import java.io.ByteArrayOutputStream;
 import java.util.zip.Deflater;

@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AddCourseToStudent {
 	int studentId;
-	 List<Integer> courseIds;
+	List<Integer> courseIds;
 }

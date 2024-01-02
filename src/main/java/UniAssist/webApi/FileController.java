@@ -13,19 +13,19 @@ import java.io.IOException;
 @RequestMapping("/file")
 @RestController
 public class FileController {
-
+	
     @Autowired
     private FileService fileService;
 
-    @PostMapping(value = "/upload/pdf", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<String> uploadPdf(@RequestParam("file") MultipartFile pdfFile) throws IOException {
-        fileService.savePdfFile(pdfFile);
+    @PostMapping(value = "/upload/pdf/{courseId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<String> uploadPdf(@RequestParam("file") MultipartFile pdfFile, @PathVariable int courseId) throws IOException {
+        fileService.savePdfFile(pdfFile, courseId);
         return ResponseEntity.ok("PDF file uploaded successfully.");
     }
 
-    @PostMapping(value = "/upload/word", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<String> uploadWord(@RequestParam("file") MultipartFile wordFile) throws IOException {
-        fileService.saveWordFile(wordFile);
+    @PostMapping(value = "/upload/word/{courseId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<String> uploadWord(@RequestParam("file") MultipartFile wordFile, @PathVariable int courseId) throws IOException {
+        fileService.saveWordFile(wordFile, courseId);
         return ResponseEntity.ok("Word file uploaded successfully.");
     }
 

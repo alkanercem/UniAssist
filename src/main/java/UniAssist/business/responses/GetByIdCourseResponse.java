@@ -8,14 +8,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetByIdCourseResponse {
-	 private int id;
-	 private int teacherId;
-	 private String name;
-	 private String departmentName;
-	 private String semesterName;
-	 private int courseClass;
-	 private int creditHours;
-	 private String day;
-	 private String timeInterval;
-	 private String examTime;
+	private int id;
+	private int teacherId;
+	private String name;
+	private String departmentName;
+	private String sectionName;
+	private String semesterName;
+	private int courseClass;
+	private int creditHours;
+	private String day;
+	private String timeInterval;
+	private String examTime;
+	
+	private float grade;	
+	private int attendanceStatus;
 }

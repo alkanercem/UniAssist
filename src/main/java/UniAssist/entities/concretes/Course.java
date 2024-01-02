@@ -3,6 +3,7 @@ package UniAssist.entities.concretes;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,6 +41,9 @@ public class Course {
 	@Column(name="department_name")
 	private String departmentName;
 	
+	@Column(name="section_name")
+	private String sectionName;
+	
 	@Column(name="semester_name")
 	private String semesterName;
 	
@@ -60,6 +64,9 @@ public class Course {
 	
 	@OneToMany(mappedBy = "course")
 	List<Grade> grade;
+	
+	@OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+	private List<FileData> pdfFiles;
 	
 
 }

@@ -14,5 +14,7 @@ public class GetByIdStudentResponse {
 	private String lastName;
 	private int courseClass;
 	private String mail;
+	private String departmentName;
+	private String sectionName;
 
 }

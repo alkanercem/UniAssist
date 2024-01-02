@@ -21,6 +21,8 @@ public class CreateTeacherRequest {
 	
 	private String departmentName;
 	
+	private String sectionName;
+	
 	private String mail;
 	
 	private String officeNo;

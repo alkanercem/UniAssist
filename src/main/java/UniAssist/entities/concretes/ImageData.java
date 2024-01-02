@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,10 +26,17 @@ public class ImageData {
     private Long id;
 
     private String name;
+ 
     private String type;
     
     @Lob
     @Column(name = "imagedata")
     private byte[] imageData;
+    
+    @OneToOne(mappedBy = "imageData")
+    private Student student;
+    
+    @OneToOne(mappedBy = "imageData")
+    private Teacher teacher;
 
 }

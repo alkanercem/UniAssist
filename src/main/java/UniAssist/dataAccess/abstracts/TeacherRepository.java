@@ -11,6 +11,7 @@ public interface TeacherRepository extends JpaRepository<Teacher,Integer>{
 	
 	Teacher findByMail(String mail);
 	Teacher findByTc(Long tc);
+	Teacher findById(int id);
 	Teacher findByFirstNameAndLastName(String firstName, String lastName);
 	 
 	 //@Query("SELECT t.id FROM Teacher t WHERE t.firstName = :firstName AND t.lastName = :lastName")

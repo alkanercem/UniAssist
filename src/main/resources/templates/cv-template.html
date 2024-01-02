@@ -4,25 +4,45 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>CV Template</title>
-    <!-- Diğer stil ve meta etiketlerini buraya ekleyebilirsiniz -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+
+        p {
+            color: #666;
+        }
+    </style>
 </head>
 <body>
 
-    <div>
-        <h1 th:text="${studentCV.student.firstName + ' ' + studentCV.student.lastName}">John Doe</h1>
-        <p th:text="${studentCV.student.departmentName}">Computer Science</p>
-        <!-- Diğer öğrenci bilgilerini buraya ekleyebilirsiniz -->
-
+    <div class="container">
         <h2>About Me</h2>
-        <p th:text="${studentCV.aboutMe}">Passionate about programming</p>
+        <p th:text="${aboutMe}">Passionate about programming</p>
 
         <h2>Skills</h2>
-        <p th:text="${studentCV.skills}">Java, Python, HTML, CSS</p>
+        <p th:text="${skills}">Java, Python, HTML, CSS</p>
 
         <h2>Experience</h2>
-        <p th:text="${studentCV.experience}">Internship at XYZ Company</p>
-
-        <!-- Diğer CV bölümlerini buraya ekleyebilirsiniz -->
+        <p th:text="${experience}">Internship at XYZ Company</p>      
     </div>
 
 </body>

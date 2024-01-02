@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-
 import UniAssist.business.abstracts.StudentService;
 import UniAssist.business.requests.CreateStudentRequest;
 import UniAssist.business.requests.UpdateStudentRequest;
@@ -23,13 +22,19 @@ import UniAssist.entities.concretes.Student;
 import UniAssist.entities.concretes.User;
 import lombok.AllArgsConstructor;
 
-@Service //Bu sınıf bir business nesnesidir
+@Service
 @AllArgsConstructor
 public class StudentManager implements StudentService{
 	
+	@Autowired
 	private ModelMapperService modelMapperService;
+	
+	@Autowired
 	private StudentRepository studentRepository;
+	
+	@Autowired
 	private UserManager userManager;
+	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	

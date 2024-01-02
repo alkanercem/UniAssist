@@ -19,7 +19,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
 public class Grade {
 	
 	@Id
@@ -27,7 +26,13 @@ public class Grade {
 	@Column(name="id")
 	private int id;
 	
-	@ManyToOne 
+	@Column(name="grade")
+	private float grade;
+	
+	@Column(name="attendance")
+	private int attendanceStatus;
+	
+	@ManyToOne
 	@JoinColumn(name = "student_id")
 	private Student student;
 	
@@ -35,11 +40,6 @@ public class Grade {
 	@JoinColumn(name = "course_id")
 	private Course course;
 	
-	@Column(name="grade")
-	private float grade;
-	
-	@Column(name="attendance")
-	private int attendanceStatus;
 	
 	
 }
