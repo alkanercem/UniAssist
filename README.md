@@ -21,7 +21,7 @@ As part of my senior project, I co-developed a comprehensive Student Information
 
 - **File Management**: Enabled users to seamlessly upload and manage various file types, enhancing document organization within the system.
 
-- **Web Scraping**: Implemented web scraping to extract real-time announcements and events from an external website, keeping users informed.
+- **Web Scraping**: Implemented web scraping to extract announcements and events from an external website, keeping users informed.
 
 - **API Integration**: Utilized external APIs to dynamically generate CVs, adhering to a consistent Response-Request pattern.
 
