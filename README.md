@@ -13,6 +13,10 @@ As part of my senior project, I co-developed a comprehensive Student Information
 
 ## Key Features
 
+- **Model Mapping**: Employed ModelMapper for efficient and seamless object transformations, enhancing code maintainability.
+  
+- **Response-Request Pattern**: Provide advantageous in API utilization by systematically organizing communication and processing sequences within a system.
+  
 - **JWT-Based Authentication**: Implemented essential components for JWT-based authentication.
 
 - **Role-Based Access Control**: Implemented JWT-based authentication with role information, ensuring secure and role-specific access.
@@ -23,8 +27,7 @@ As part of my senior project, I co-developed a comprehensive Student Information
 
 - **Web Scraping**: Implemented web scraping to extract announcements and events from an external website, keeping users informed.
 
-- **API Integration**: Utilized external APIs to dynamically generate CVs, adhering to a consistent Response-Request pattern.
-
-- **Model Mapping**: Employed ModelMapper for efficient and seamless object transformations, enhancing code maintainability.
-
+- **Generate CV**: Implemented iText and Thymeleaf libraries to dynamically generate CVs for students.
+ 
 - **Toolset**: Utilized Lombok and Swagger for streamlined development and API documentation.
+
